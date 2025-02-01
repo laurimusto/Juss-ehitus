@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jussehitus - Construction Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+
+<nav class="navbar">
+    <div class="container">
+        <a href="#hero" class="logo">
+            <img src="images/logo.png" alt="Jussehitus Logo" style="height: 50px;">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#hero" class="nav-item">Avaleht</a></li>
+            <li><a href="#services" class="nav-item">Teenused</a></li>
+            <li><a href="#gallery" class="nav-item">Galerii</a></li>
+            <li><a href="javascript:void(0)" class="nav-item" onclick="openPopup()">Kontakt</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Kvaliteetne Ehitus & Renoveerimine</h1>
+            <p>Usaldusväärne partner teie ehitusprojektidele.</p>
+            <a href="javascript:void(0)" class="btn" onclick="openPopup()">Küsi hinnapakkumist</a>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Meie Teenused</h2>
+            <div class="service-box">
+                <h3>Ehitus ja Renoveerimine</h3>
+                <p>Põhjalikud ja kvaliteetsed ehitustööd.</p>
+            </div>
+            <div class="service-box">
+                <h3>Siseviimistlus</h3>
+                <p>Stiilne ja vastupidav siseviimistlus.</p>
+            </div>
+            <div class="service-box">
+                <h3>Fassaaditööd</h3>
+                <p>Kvaliteetsed ja ilmastikukindlad lahendused.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Tehtud Tööd</h2>
+            <div class="gallery-grid">
+                <img src="images/project1.jpg" alt="Ehitusprojekt 1">
+                <img src="images/project2.jpg" alt="Ehitusprojekt 2">
+                <img src="images/project3.jpg" alt="Ehitusprojekt 3">
+                <img src="images/palkmaja.jpg" alt="Ehitusprojekt">
+                <img src="images/trepp.jpg" alt="Ehitusprojekt">
+                <img src="images/katus.jpg" alt="Ehitusprojekt" class="hidden"> <!-- Hidden initially -->
+                <!-- Add more hidden images as needed -->
+            </div>
+            <button id="load-more" class="btn">Laadi Rohkem</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <button class="btn" onclick="openPopup()">Võta ühendust</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Jussehitus. Kõik õigused kaitstud.</p>
+    </footer>
+
+    <!-- Contact Popup (Hidden by Default) -->
+<div id="contact-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Võta meiega ühendust</h2>
+        <form action="mailto:laurits1@hotmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Teie nimi" required>
+            <input type="email" name="email" placeholder="Teie email" required>
+            <textarea name="message" placeholder="Teie sõnum" required></textarea>
+            <button type="submit" class="btn">Saada</button>
+        </form>
+    </div>
+</div>
+
+
+    <script src="script.js" defer></script>
+
+
+</body>
+</html>
