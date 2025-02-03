@@ -22,47 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         hero.style.setProperty('--darken-opacity', opacity);
         hero.style.opacity = 1 - opacity; // Fade out the background image
     });
-
-    // Interactive popup for gallery images
-    const galleryImages = document.querySelectorAll(".gallery-grid img");
-    const popupImage = document.createElement("div");
-    popupImage.classList.add("popup-image");
-    popupImage.innerHTML = '<span class="close-btn">&times;</span><img src="" alt="Popup Image">';
-    document.body.appendChild(popupImage);
-
-    galleryImages.forEach((img) => {
-        img.addEventListener("click", function () {
-            popupImage.style.display = "flex";
-            popupImage.querySelector("img").src = this.src;
-        });
-    });
-
-    popupImage.querySelector(".close-btn").addEventListener("click", function () {
-        popupImage.style.display = "none";
-    });
-
-    // Close popup image when clicking outside the image
-    popupImage.addEventListener("click", function (e) {
-        if (e.target === popupImage) {
-            popupImage.style.display = "none";
-        }
-    });
-
-    // Load More button functionality with smooth scrolling
-    const loadMoreButton = document.getElementById("load-more");
-    loadMoreButton.addEventListener("click", function () {
-        const hiddenImages = document.querySelectorAll(".gallery-grid img.hidden");
-        hiddenImages.forEach((img, index) => {
-            if (index < 5) { // Show 5 more images
-                img.classList.remove("hidden");
-            }
-        });
-        if (document.querySelectorAll(".gallery-grid img.hidden").length === 0) {
-            loadMoreButton.style.display = "none"; // Hide button if no more images
-        }
-        // Smooth scroll to the newly revealed images
-        hiddenImages[0].scrollIntoView({ behavior: 'smooth' });
-    });
 });
 
 function openPopup() {
@@ -71,4 +30,47 @@ function openPopup() {
 
 function closePopup() {
     document.getElementById("contact-popup").style.display = "none";
+}
+
+function openImageViewer(galleryId) {
+    const images = {
+        gallery1: [
+            'images/project1.jpg',
+            'images/project2.jpg',
+            'images/project3.jpg'
+        ],
+        gallery2: [
+            'images/palkmaja.jpg',
+            'images/trepp.jpg',
+            'images/katus.jpg'
+        ],
+        gallery3: [
+            'images/interior1.jpg',
+            'images/interior2.jpg',
+            'images/interior3.jpg'
+        ]
+    };
+
+    const popupImageContent = document.getElementById('popup-image-content');
+    popupImageContent.innerHTML = '';
+
+    images[galleryId].forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        popupImageContent.appendChild(img);
+    });
+
+    const popupImageViewer = document.getElementById('popup-image-viewer');
+    popupImageViewer.style.display = 'flex';
+    setTimeout(() => {
+        popupImageViewer.classList.add('show');
+    }, 10); // Delay to ensure display change is applied
+}
+
+function closeImageViewer() {
+    const popupImageViewer = document.getElementById('popup-image-viewer');
+    popupImageViewer.classList.remove('show');
+    setTimeout(() => {
+        popupImageViewer.style.display = 'none';
+    }, 300); // Match the transition duration
 }
